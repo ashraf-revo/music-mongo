@@ -1,0 +1,11 @@
+---
+applications:
+- name: music
+  memory: 1G
+  instances: 1
+  host: musik
+  buildpack: java_buildpack
+  path: target/music-0.0.1-SNAPSHOT.jar
+  services:
+  - MySqlDbmusic
+  - MongoDbmusic

@@ -1,0 +1,19 @@
+<div class="text-center wrapper">
+  <ul class="list-group list-group-lg no-bg auto m-b-none m-t-n-xxs">
+    <li *ngFor="let s of songs" class="list-group-item clearfix">
+      <a (click)="play(s)" class="jp-play-me pull-right m-t-sm m-l text-md">
+        <i class="icon-control-play text"></i>
+        <i class="icon-control-pause text-active"></i>
+      </a>
+      <a class="pull-left thumb-sm m-r">
+        <img [src]="s.imageUrl" alt="...">
+      </a>
+      <a class="clear">
+        <span class="block text-ellipsis">{{s.title}}</span>
+        <small class="text-muted">
+          <a [routerLink]="['/profile/',s.user.id]">by {{s.user.name | slice:0:15}}</a>
+        </small>
+      </a>
+    </li>
+  </ul>
+</div>

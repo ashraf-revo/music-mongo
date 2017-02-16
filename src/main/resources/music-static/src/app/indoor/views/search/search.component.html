@@ -1,0 +1,7 @@
+result
+<ul>
+  <li *ngFor="let item of songs">
+    {{item.title}}
+  </li>
+</ul>
+<m-pagination [receiver]="sender" (currentUpdate)="updateSearch($event)"></m-pagination>

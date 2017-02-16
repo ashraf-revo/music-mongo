@@ -1,0 +1,7 @@
+<div class="text-center">
+  <ul class="pagination pagination">
+    <li><a><i class="fa fa-chevron-left"></i></a></li>
+    <li *ngFor="let item of pages"><a (click)="go(item)">{{item}}</a></li>
+    <li><a><i class="fa fa-chevron-right"></i></a></li>
+  </ul>
+</div>

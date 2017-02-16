@@ -1,0 +1,9 @@
+
+            ${AnsiColor.BRIGHT_RED} ______      ${AnsiColor.BRIGHT_GREEN} ___________    ____  ______
+            ${AnsiColor.BRIGHT_RED}|   _  \     ${AnsiColor.BRIGHT_GREEN}|   ____\   \  /   / /  __  \
+            ${AnsiColor.BRIGHT_RED}|  |_)  |    ${AnsiColor.BRIGHT_GREEN}|  |__   \   \/   / |  |  |  |
+            ${AnsiColor.BRIGHT_RED}|      /     ${AnsiColor.BRIGHT_GREEN}|   __|   \      /  |  |  |  |
+            ${AnsiColor.BRIGHT_RED}|  |\  \----.${AnsiColor.BRIGHT_GREEN}|  |____   \    /   |  `--'  |
+            ${AnsiColor.BRIGHT_RED}| _| `._____|${AnsiColor.BRIGHT_GREEN}|_______|   \__/     \______/
+            ${AnsiColor.BRIGHT_RED}:: Revo :: Running Spring Boot ${spring-boot.version} :: \ö/${AnsiColor.BLACK}
+

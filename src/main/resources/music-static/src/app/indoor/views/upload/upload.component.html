@@ -1,0 +1,80 @@
+<section class="scrollable padder">
+  <div class="m-b-md"><h3 class="m-b-none">Upload</h3></div>
+  <div class="row">
+    <div class="col-sm-8">
+      <section class="panel panel-default">
+        <header class="panel-heading font-bold"> Upload Form</header>
+        <div class="panel-body">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-id-1">Title</label>
+              <div class="col-sm-10">
+                <input type="text" name="title" [(ngModel)]="song.title" class="form-control" id="input-id-1">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="input-id-2">Description</label>
+              <div class="col-sm-10">
+                <textarea style="resize: none" class="form-control" name="description" [(ngModel)]="song.description"
+                          rows="3" id="input-id-2"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Image input</label>
+              <div class="col-sm-10">
+                <input type="file" #image (change)="name(image,imagev)" class="filestyle" id="filestyle-1"
+                       style="position: fixed; left: -500px;">
+                <div class="bootstrap-filestyle" style="display: inline;">
+                  <input type="text" #imagev class="form-control inline v-middle input-s" disabled="">
+                  <label for="filestyle-1" class="btn btn-default">
+                    <span>Choose file</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Music input</label>
+              <div class="col-sm-10">
+                <input type="file" #file (change)="name(file,filev)" class="filestyle" id="filestyle-2"
+                       style="position: fixed; left: -500px;">
+                <div class="bootstrap-filestyle" style="display: inline;">
+                  <input type="text" #filev class="form-control inline v-middle input-s" disabled="">
+                  <label for="filestyle-2" class="btn btn-default">
+                    <span>Choose file</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="line line-dashed b-b line-lg pull-in"></div>
+            <div class="form-group">
+              <div class="col-sm-4 col-sm-offset-2">
+                <button type="submit" class="btn btn-default" (click)="reset(image,file,imagev,filev)">Reset</button>
+                <button type="submit" class="btn btn-primary" (click)="upload(image,file,imagev,filev)">Upload</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+    <div class="col-sm-4">
+      <section class="panel panel-default">
+        <header class="panel-heading font-bold">Uploaded</header>
+        <div class="panel-body">
+
+
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let u of uploading">
+              {{u.data.title}}:{{u.width()}}
+              <div class="progress progress-xs m-t-sm">
+                <div class="progress-bar" data-toggle="tooltip"
+                     [ngClass]="{'bg-success': u.state=='completed','bg-info': u.state=='binding','bg-danger': u.state=='fail'}"
+                     [ngStyle]="{width: u.width()}"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

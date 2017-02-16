@@ -1,0 +1,14 @@
+<section id="uniqueEmail" class="m-t-lg wrapper-md animated fadeInDown">
+  <div class="container aside-xl">
+    <a class="navbar-brand block" href="">
+      <span class="h1 font-bold">Music</span>
+    </a>
+    <section class="m-b-lg">
+      <header class="wrapper text-center">
+        <strong class="text-info"  *ngIf="success==-1">Activating.........</strong>
+        <strong class="text-danger" *ngIf="success==0">Activating failed please try again.........</strong>
+        <a  *ngIf="success==1" [routerLink]="['/']" class="btn btn-s-md btn-success">Success please sign in !!</a>
+      </header>
+    </section>
+  </div>
+</section>

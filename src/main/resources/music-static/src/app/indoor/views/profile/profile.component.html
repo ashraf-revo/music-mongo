@@ -1,0 +1,64 @@
+<section class="hbox stretch">
+  <aside class="aside-lg bg-light lter b-r">
+    <section class="vbox">
+      <section class="scrollable">
+        <div class="wrapper">
+          <div class="text-center m-b m-t"><a class="thumb-lg">
+            <img [src]="user.imageUrl" class="img-circle">
+          </a>
+            <div>
+              <div class="h3 m-t-xs m-b-xs">{{user.name}}</div>
+              <small class="text-muted">
+                <i class="fa fa-map-marker"></i>
+                {{user.email}}
+                <br/>
+                {{user.phone}}
+              </small>
+            </div>
+          </div>
+          <div>
+            <small class="text-uc text-xs text-muted">Joined us</small>
+            <p>{{user.createdDate | date}}</p>
+            <small class="text-uc text-xs text-muted">info</small>
+            <p>
+              {{user.info}}
+            </p>
+            <div class="line"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </aside>
+  <aside class="bg-white">
+    <section class="vbox">
+      <header class="header bg-light lt">
+        <ul class="nav nav-tabs nav-white">
+          <li class="active">
+            <a (click)="c='uploaded'" data-toggle="tab">Uploaded</a>
+          </li>
+          <li class="">
+            <a (click)="c='likes'" data-toggle="tab">Likes</a>
+          </li>
+          <li class="">
+            <a (click)="c='history'" data-toggle="tab">History</a>
+          </li>
+        </ul>
+      </header>
+      <section class="scrollable">
+        <div class="tab-content">
+          <div class="tab-pane" [ngClass]="{'active': c=='uploaded'}">
+            <m-tab [songs]="songs"></m-tab>
+          </div>
+          <div class="tab-pane" [ngClass]="{'active': c=='likes'}">
+            <m-tab [songs]="likes"></m-tab>
+          </div>
+          <div class="tab-pane" [ngClass]="{'active': c=='history'}">
+            <m-tab [songs]="views"></m-tab>
+          </div>
+        </div>
+      </section>
+    </section>
+  </aside>
+
+
+</section>

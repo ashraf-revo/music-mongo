@@ -1,0 +1,31 @@
+<div class="item">
+  <div class="pos-rlt">
+    <div class="item-overlay opacity r r-2x bg-black">
+      <div class="center text-center m-t-n">
+        <a (click)="play()">
+          <i class="icon-control-play i-2x"></i>
+        </a>
+      </div>
+      <div class="bottom padder m-b-sm">
+        <a class="pull-right" (click)="like()">
+          <i class="fa" [ngClass]="{'fa-heart': song.liked!=null,'fa-heart-o': song.liked==null}"></i>
+        </a>
+        <a>
+          <i class="fa fa-plus-circle"></i>
+        </a>
+      </div>
+    </div>
+    <a>
+      <img [src]="song.imageUrl" class="r r-2x img-full">
+    </a>
+  </div>
+  <div class="padder-v">
+    <p class="text-ellipsis">
+      {{song.title}}
+      <a [routerLink]="['/profile/',song.user.id]">by {{song.user.name | slice:0:15}}</a>
+    </p>
+    <a class="text-ellipsis text-xs text-muted">
+      <i class="fa fa-pencil"></i>
+      {{song.description | slice:0:15}}</a>
+  </div>
+</div>

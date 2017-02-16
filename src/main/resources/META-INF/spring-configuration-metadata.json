@@ -1,0 +1,44 @@
+{
+  "groups": [
+    {
+      "name": "org.revo.app_env",
+      "type": "org.revo.Configration.AppEnv",
+      "sourceType": "org.revo.Configration.AppEnv"
+    },
+    {
+      "name": "org.revo.app_env.cloudinary",
+      "type": "org.revo.Configration.AppEnv$Cloudinary",
+      "sourceType": "org.revo.Configration.AppEnv",
+      "sourceMethod": "getCloudinary()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "org.revo.app_env.cloudinary.key",
+      "type": "java.lang.String",
+      "sourceType": "org.revo.Configration.AppEnv$Cloudinary"
+    },
+    {
+      "name": "org.revo.app_env.cloudinary.name",
+      "type": "java.lang.String",
+      "sourceType": "org.revo.Configration.AppEnv$Cloudinary"
+    },
+    {
+      "name": "org.revo.app_env.cloudinary.secret",
+      "type": "java.lang.String",
+      "sourceType": "org.revo.Configration.AppEnv$Cloudinary"
+    },
+    {
+      "name": "org.revo.app_env.key",
+      "type": "java.lang.String",
+      "sourceType": "org.revo.Configration.AppEnv",
+      "defaultValue": "org.revo.key"
+    },
+    {
+      "name": "org.revo.app_env.users",
+      "type": "java.util.List<org.revo.Domain.User>",
+      "sourceType": "org.revo.Configration.AppEnv"
+    }
+  ],
+  "hints": []
+}
