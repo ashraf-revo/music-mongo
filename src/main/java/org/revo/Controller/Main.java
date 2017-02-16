@@ -13,8 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class Main {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public Main(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = {"", "/{[path:[^.]*}", "/{[path:[^.]*}/{[path:[^.]*}", "/{[path:[^.]*}/{[path:[^.]*}/{[path:[^.]*}", "/{[path:[^.]*}/{[path:[^.]*}/{[path:[^.]*}/{[path:[^.]*}"})
     public ModelAndView index() {

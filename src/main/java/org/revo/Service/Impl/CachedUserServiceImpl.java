@@ -23,12 +23,16 @@ import static org.revo.Util.Util.copyView;
  */
 @Service
 public class CachedUserServiceImpl implements CachedUserService {
+    private final CachedUserService cachedUserService;
+    private final UserRepository userRepository;
+    private final UserService userService;
+
     @Autowired
-    private CachedUserService cachedUserService;
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private UserService userService;
+    public CachedUserServiceImpl(CachedUserService cachedUserService, UserRepository userRepository, UserService userService) {
+        this.cachedUserService = cachedUserService;
+        this.userRepository = userRepository;
+        this.userService = userService;
+    }
 
     @Cacheable(value = "userViews", key = "#id")
     @Override

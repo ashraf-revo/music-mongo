@@ -28,16 +28,20 @@ import static org.revo.Util.Util.removeFrom;
  */
 @Service
 public class SongServiceImpl implements SongService {
+    private final SongRepository songRepository;
+    private final MongoOperations mongoOperations;
+    private final UserService userService;
+    private final IndexedSongService indexedSongService;
+    private final CloudinaryService cloudinaryService;
+
     @Autowired
-    private SongRepository songRepository;
-    @Autowired
-    private MongoOperations mongoOperations;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private IndexedSongService indexedSongService;
-    @Autowired
-    private CloudinaryService cloudinaryService;
+    public SongServiceImpl(SongRepository songRepository, MongoOperations mongoOperations, UserService userService, IndexedSongService indexedSongService, CloudinaryService cloudinaryService) {
+        this.songRepository = songRepository;
+        this.mongoOperations = mongoOperations;
+        this.userService = userService;
+        this.indexedSongService = indexedSongService;
+        this.cloudinaryService = cloudinaryService;
+    }
 
 
     @Override

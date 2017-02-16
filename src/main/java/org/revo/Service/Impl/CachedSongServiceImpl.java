@@ -22,10 +22,14 @@ import static org.revo.Util.Util.copyView;
  */
 @Service
 public class CachedSongServiceImpl implements CachedSongService {
+    private final CachedSongService cachedSongService;
+    private final SongRepository songRepository;
+
     @Autowired
-    private CachedSongService cachedSongService;
-    @Autowired
-    private SongRepository songRepository;
+    public CachedSongServiceImpl(CachedSongService cachedSongService, SongRepository songRepository) {
+        this.cachedSongService = cachedSongService;
+        this.songRepository = songRepository;
+    }
 
     @Cacheable(value = "songViews", key = "#id")
     @Override

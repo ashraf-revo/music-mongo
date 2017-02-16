@@ -29,12 +29,16 @@ import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
  */
 @Service
 public class IndexedSongServiceImpl implements IndexedSongService {
+    private final IndexedSongRepository indexedsongRepository;
+    private final SongService songService;
+    private final ElasticsearchOperations operations;
+
     @Autowired
-    private    IndexedSongRepository indexedsongRepository;
-    @Autowired
-    private    SongService songService;
-    @Autowired
-    private    ElasticsearchOperations operations;
+    public IndexedSongServiceImpl(IndexedSongRepository indexedsongRepository, SongService songService, ElasticsearchOperations operations) {
+        this.indexedsongRepository = indexedsongRepository;
+        this.songService = songService;
+        this.operations = operations;
+    }
 
     @Override
     public Page<Song> search(SearchCriteria searchCriteria) {

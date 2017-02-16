@@ -18,15 +18,19 @@ import javax.mail.internet.MimeMessage;
  */
 @Service
 public class MailServiceImpl implements MailService {
-    @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    private SpringTemplateEngine templateEngine;
+    private final JavaMailSender javaMailSender;
+    private final SpringTemplateEngine templateEngine;
 
     @Value("${vcap.application.uris[0]}")
     String uris;
     @Value("${info.application.name}")
     String appname;
+
+    @Autowired
+    public MailServiceImpl(JavaMailSender javaMailSender, SpringTemplateEngine templateEngine) {
+        this.javaMailSender = javaMailSender;
+        this.templateEngine = templateEngine;
+    }
 
     private void Send(String to, String subject, String text, boolean isHtml) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();

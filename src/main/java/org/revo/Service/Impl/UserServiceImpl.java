@@ -31,14 +31,18 @@ import static org.revo.Util.Util.removeFrom;
  */
 @Service
 public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+    private final MongoOperations mongoOperations;
+    private final PasswordEncoder encoder;
+    private final CloudinaryService cloudinaryService;
+
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private MongoOperations mongoOperations;
-    @Autowired
-    private PasswordEncoder encoder;
-    @Autowired
-    private CloudinaryService cloudinaryService;
+    public UserServiceImpl(UserRepository userRepository, MongoOperations mongoOperations, PasswordEncoder encoder, CloudinaryService cloudinaryService) {
+        this.userRepository = userRepository;
+        this.mongoOperations = mongoOperations;
+        this.encoder = encoder;
+        this.cloudinaryService = cloudinaryService;
+    }
 
     @Override
     public User current() {

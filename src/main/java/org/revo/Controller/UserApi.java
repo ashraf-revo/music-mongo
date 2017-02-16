@@ -26,14 +26,18 @@ import java.util.List;
 @RestController
 @RequestMapping(Role.Paths.USER_PATH)
 public class UserApi {
+    private final UserService userService;
+    private final MailService mailService;
+    private final CachedUserService cachedUserService;
+    private final SongService songService;
+
     @Autowired
-    private UserService userService;
-    @Autowired
-    private MailService mailService;
-    @Autowired
-    private CachedUserService cachedUserService;
-    @Autowired
-    private SongService songService;
+    public UserApi(UserService userService, MailService mailService, CachedUserService cachedUserService, SongService songService) {
+        this.userService = userService;
+        this.mailService = mailService;
+        this.cachedUserService = cachedUserService;
+        this.songService = songService;
+    }
 
     @GetMapping
     @JsonView(ViewDetails.user.class)

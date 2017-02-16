@@ -15,18 +15,22 @@ import org.springframework.util.Assert;
  */
 @Service
 public class LikeServiceImpl implements LikeService {
+    private final LikeRepository likeRepository;
+    private final UserService userService;
+    private final SongService songService;
+    private final CachedSongService cachedSongService;
+    private final CachedUserService cachedUserService;
+    private final MongoOperations mongoOperations;
+
     @Autowired
-    private LikeRepository likeRepository;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private SongService songService;
-    @Autowired
-    private CachedSongService cachedSongService;
-    @Autowired
-    private CachedUserService cachedUserService;
-    @Autowired
-    private MongoOperations mongoOperations;
+    public LikeServiceImpl(LikeRepository likeRepository, UserService userService, SongService songService, CachedSongService cachedSongService, CachedUserService cachedUserService, MongoOperations mongoOperations) {
+        this.likeRepository = likeRepository;
+        this.userService = userService;
+        this.songService = songService;
+        this.cachedSongService = cachedSongService;
+        this.cachedUserService = cachedUserService;
+        this.mongoOperations = mongoOperations;
+    }
 
     @Override
     public Like like(Like like) {
