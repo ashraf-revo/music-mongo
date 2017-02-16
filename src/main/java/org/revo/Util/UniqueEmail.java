@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
  * Created by ashraf on 13/02/17.
  */
 public class UniqueEmail implements Validator {
-    private UserService userService;
+    private final UserService userService;
 
     public UniqueEmail(UserService userService) {
         this.userService = userService;
