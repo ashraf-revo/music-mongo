@@ -12,20 +12,16 @@ import org.springframework.util.Assert;
  */
 @Service
 public class viewServiceImpl implements ViewService {
-    private final ViewRepository viewRepository;
-    private final SongService songService;
-    private final UserService userService;
-    private final CachedSongService cachedSongService;
-    private final CachedUserService cachedUserService;
-
     @Autowired
-    public viewServiceImpl(ViewRepository viewRepository, SongService songService, UserService userService, CachedSongService cachedSongService, CachedUserService cachedUserService) {
-        this.viewRepository = viewRepository;
-        this.songService = songService;
-        this.userService = userService;
-        this.cachedSongService = cachedSongService;
-        this.cachedUserService = cachedUserService;
-    }
+    private ViewRepository viewRepository;
+    @Autowired
+    private SongService songService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private CachedSongService cachedSongService;
+    @Autowired
+    private CachedUserService cachedUserService;
 
 
     @Override

@@ -21,7 +21,7 @@ public class MailServiceImpl implements MailService {
     private final JavaMailSender javaMailSender;
     private final SpringTemplateEngine templateEngine;
 
-    @Value("${vcap.application.uris[0]}")
+    @Value("${vcap.application.uris[0]:http://localhost:8080}")
     String uris;
     @Value("${info.application.name}")
     String appname;

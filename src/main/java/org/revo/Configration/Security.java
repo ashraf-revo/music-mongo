@@ -26,25 +26,21 @@ import static org.springframework.http.HttpMethod.POST;
 @Configuration
 @EnableWebSecurity
 public class Security extends WebSecurityConfigurerAdapter {
-    private final PasswordEncoder encoder;
-    private final UserDetailsService userDetailsService;
-    private final UserService userService;
-    private final RememberMeServices rememberMeServices;
-    private final AppEnv appEnv;
-    private final CsrfTokenRepository csrfTokenRepository;
+    @Autowired
+    private PasswordEncoder encoder;
+    @Autowired
+    private UserDetailsService userDetailsService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private RememberMeServices rememberMeServices;
+    @Autowired
+    private AppEnv appEnv;
+    @Autowired
+    private CsrfTokenRepository csrfTokenRepository;
 
 
     private final ObjectMapper mapper = new ObjectMapper();
-
-    @Autowired
-    public Security(PasswordEncoder encoder, UserDetailsService userDetailsService, UserService userService, RememberMeServices rememberMeServices, AppEnv appEnv, CsrfTokenRepository csrfTokenRepository) {
-        this.encoder = encoder;
-        this.userDetailsService = userDetailsService;
-        this.userService = userService;
-        this.rememberMeServices = rememberMeServices;
-        this.appEnv = appEnv;
-        this.csrfTokenRepository = csrfTokenRepository;
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

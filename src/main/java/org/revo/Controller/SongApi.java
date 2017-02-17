@@ -19,21 +19,16 @@ import java.util.List;
 @RestController
 @RequestMapping(Role.Paths.SONG_PATH)
 public class SongApi {
-    private final SongService songService;
-    private final LikeService likeService;
-    private final IndexedSongService indexedSongService;
-    private final ViewService viewService;
-    private final
-    CachedUserService cachedUserService;
-
     @Autowired
-    public SongApi(SongService songService, LikeService likeService, IndexedSongService indexedSongService, ViewService viewService, CachedUserService cachedUserService) {
-        this.songService = songService;
-        this.likeService = likeService;
-        this.indexedSongService = indexedSongService;
-        this.viewService = viewService;
-        this.cachedUserService = cachedUserService;
-    }
+    private SongService songService;
+    @Autowired
+    private LikeService likeService;
+    @Autowired
+    private IndexedSongService indexedSongService;
+    @Autowired
+    private ViewService viewService;
+    @Autowired
+    private CachedUserService cachedUserService;
 
     @GetMapping
     @JsonView(ViewDetails.CustomSong.class)

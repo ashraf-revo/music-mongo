@@ -17,12 +17,8 @@ import java.util.Map;
  */
 @Service
 public class CloudinaryServiceImpl implements CloudinaryService {
-    private final Cloudinary cloudinary;
-
     @Autowired
-    public CloudinaryServiceImpl(Cloudinary cloudinary) {
-        this.cloudinary = cloudinary;
-    }
+    private Cloudinary cloudinary;
 
     @Override
     public String saveFile(Song song) {

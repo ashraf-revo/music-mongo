@@ -15,22 +15,18 @@ import org.springframework.util.Assert;
  */
 @Service
 public class LikeServiceImpl implements LikeService {
-    private final LikeRepository likeRepository;
-    private final UserService userService;
-    private final SongService songService;
-    private final CachedSongService cachedSongService;
-    private final CachedUserService cachedUserService;
-    private final MongoOperations mongoOperations;
-
     @Autowired
-    public LikeServiceImpl(LikeRepository likeRepository, UserService userService, SongService songService, CachedSongService cachedSongService, CachedUserService cachedUserService, MongoOperations mongoOperations) {
-        this.likeRepository = likeRepository;
-        this.userService = userService;
-        this.songService = songService;
-        this.cachedSongService = cachedSongService;
-        this.cachedUserService = cachedUserService;
-        this.mongoOperations = mongoOperations;
-    }
+    private LikeRepository likeRepository;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private SongService songService;
+    @Autowired
+    private CachedSongService cachedSongService;
+    @Autowired
+    private CachedUserService cachedUserService;
+    @Autowired
+    private MongoOperations mongoOperations;
 
     @Override
     public Like like(Like like) {
@@ -60,7 +56,6 @@ public class LikeServiceImpl implements LikeService {
             songService.unLike(andRemove.getSong(), andRemove);
             cachedUserService.remove(andRemove);
             cachedSongService.remove(andRemove);
-
         }
     }
 }
